@@ -1,0 +1,37 @@
+# This irole install nginx
+
+- name: copy script
+  copy: src=/tmp/nginx_php_mysql.sh dest=/tmp/nginx_php_mysql.sh force=yes
+
+- name: yum clean
+  shell: /bin/yum clean all
+
+- name: nginx rpm install
+  shell: /bin/bash /tmp/nginx_php_mysql.sh web
+
+- name: /etc/nginx/conf/vhost exists
+  shell: ls /etc/nginx/vhost
+  ignore_errors: True
+  register: result
+
+- name: mkdir
+  shell: mkdir /etc/nginx/conf/vhost
+  when: result|failed
+
+- name: copy file
+  copy: src=proxy_nginx.conf dest=/etc/nginx/conf force=yes
+  copy: src={{ item }} dest=/etc/nginx/conf/vhost force=yes
+  with_items:
+   - default_upstream.conf-default
+   - www.default.com.conf-default
+  #copy: src=default_upstream.conf-default dest=/etc/nginx/conf/vhost force=yes
+  #copy: src=www.default.com.conf-default dest=/etc/nginx/conf/vhost force=yes
+
+- name: copy config
+  template: nginx.conf.j2 dest={{ base_dir }}/nginx.conf
+  notify:
+   - restart nginx
+
+
+
+

@@ -1,0 +1,6 @@
+# Variables nginx user or group
+nginx_user: nginx
+nginx_group: nginx
+
+# Variables nginx base dir
+base_dir: /etc/nginx

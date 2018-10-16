@@ -1,0 +1,9 @@
+upstream web{
+         ip_hash;
+         server 192.168.1.250:80;
+         server 192.168.1.251:80;
+         check interval=5000 rise=2 fall=4 timeout=10000 type=http;
+         check_keepalive_requests 100;
+         check_http_send "HEAD /index.html HTTP/1.1\r\nHOST:www.default.com\r\n\r\n";
+         check_http_expect_alive http_2xx http_3xx;
+          }
