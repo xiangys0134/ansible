@@ -1,0 +1,5 @@
+# This is install nginx or install db
+- hosts: 192.168.132.134
+  #remote_user: opadm
+  roles:
+   - { role: websrvs }

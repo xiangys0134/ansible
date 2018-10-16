@@ -2,5 +2,9 @@
 nginx_user: nginx
 nginx_group: nginx
 
+# Ansible user
+user: opadm
+group: opadm
+
 # Variables nginx base dir
-base_dir: /etc/nginx
+base_dir: /etc/nginx/conf
