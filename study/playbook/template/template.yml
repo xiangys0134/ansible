@@ -1,0 +1,9 @@
+- hosts: all
+  remote_user: opadm
+  tasks:
+  - name: Template a file to /etc/hosts
+    template:
+      src: src/hosts.j2
+      dest: /tmp/hosts
+      owner: bin
+      group: wheel

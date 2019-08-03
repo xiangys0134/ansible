@@ -1,0 +1,16 @@
+- hosts: all
+  vars:
+    key: oooo 
+  tasks:
+  - name: var
+    shell: "date '+%Y%m%d%H%M%S'"
+    register: say_hi
+  - set_fact: var="{{say_hi.stdout}}"
+  - name: echo 
+    shell: mkdir "/tmp/test-{{ var }}"
+
+#- hosts: all
+#  tasks:
+#  - name: mkdir files
+#    shell: mkdir "/opt/aaabbb"
+    

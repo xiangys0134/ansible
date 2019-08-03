@@ -1,0 +1,14 @@
+- hosts: all
+  remote_user: opadm
+  tasks:
+  - name:
+    command: "date '+%Y%m%d%H%M%S'"
+    register: date_output
+  - set_fact: var="{{date_output.stdout}}"
+  - name: web
+    copy: 
+      src: /root/sysctl.txt
+      dest: "/tmp/sysctl{{var}}.txt"
+      group: mail
+      owner: mail
+       
