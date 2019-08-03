@@ -1,0 +1,11 @@
+- hosts: all
+  remote_user: opadm
+  vars:
+    new_user: test0134
+  tasks:
+  - name: del user
+    user:
+      name: test0134
+      state: absent
+      remove: yes
+    
