@@ -1,0 +1,25 @@
+- hosts: all
+  remote_user: opadm
+  become: yes
+  become_user: root
+  vars:
+    date_time: 20190803204847
+  tasks:
+  - name: copy website
+    copy:
+      src: src/web
+      dest: /data/web-{{date_time}}
+    register: result
+    ignore_errors: True
+  - name:
+    fail: msg="check failed"
+    when: result is failed
+  #- name:
+  #  file: path=/tmp/xiangys0  owner=root group=root mode=0755 state=directory
+  - name:
+    file:
+      src: /data/web-{{date_time}}
+      dest: /data/www
+      state: link
+      owner: mail
+      force: yes
