@@ -1,0 +1,30 @@
+#- hosts: webservers
+- hosts: webservers dbservers
+  gather_facts: no
+  vars:
+    port: 9100
+  tasks:
+  - name: 推送二进制文件
+    unarchive: src=node_exporter-0.18.1.linux-amd64.tar.gz dest=/usr/local
+  - name: 重命名
+    shell: |
+        cd /usr/local/
+        if [ ! -d node_exporter ]; then
+           mv node_exporter-0.18.1.linux-amd64 node_exporter
+        fi
+  - name: 推送配置文件
+    copy: src=config.yaml dest=/usr/local/node_exporter
+  - name: 拷贝systemd文件
+    copy: src=node_exporter.service dest=/usr/lib/systemd/system
+  - name: 启动服务
+    shell: systemctl daemon-reload;systemctl restart node_exporter.service;systemctl enable node_exporter.service
+    #systemd: name=node_exporter state=started enable=yes daemon_reload=yes
+  - name: 推送注册脚本
+    copy: 
+      src: consul-register.sh 
+      dest: /usr/local/bin/
+  - name: 注册当前节点
+    # 服务名 实例名 ip 端口
+    shell: /bin/bash /usr/local/bin/consul-register.sh {{ group_names[0] }} {{ name }} {{ inventory_hostname }} {{ port }}
+  #- name: 停止服务
+  #  shell: systemctl daemon-reload;systemctl stop node_exporter.service;systemctl disable node_exporter.service

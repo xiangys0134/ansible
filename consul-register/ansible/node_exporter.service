@@ -1,0 +1,10 @@
+[Unit]
+Description=node_exporter
+
+[Service]
+Restart=on-failure
+#ExecStart=/usr/local/node_exporter/node_exporter --web.config=/usr/local/node_exporter/config.yaml
+ExecStart=/usr/local/node_exporter/node_exporter
+
+[Install]
+WantedBy=multi-user.target

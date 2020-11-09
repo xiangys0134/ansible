@@ -1,0 +1,6 @@
+[webservers]
+192.168.10.115 ansible_port=31235 name=web1
+192.168.10.117 ansible_port=31235 name=web2
+192.168.10.118 ansible_port=31235 name=web3
+[dbservers]
+192.168.10.116 ansible_port=31235 name=db1
