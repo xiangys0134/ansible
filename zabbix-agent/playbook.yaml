@@ -1,0 +1,16 @@
+- hosts: linux_agent
+  gather_facts: no
+  tasks:
+  - name: 推送文件
+    copy: src=zabbix-ansible dest=/tmp
+  #- name: 推送linux监控文件
+  #  copy: src=./zabbix-ansible/monitor_sh dest=/tmp
+  #- name: 推送win监控文件
+  # copy: src=./zabbix-ansible/monitor_bat dest=/tmp
+  #- name: 推送zabbix配置文件
+  #  copy: src=zabbix_agentd.d dest=/tmp
+  #- name: 推送scripts脚本
+  #  copy: src=scripts dest=/tmp
+  - name: 运行脚本
+    shell: sudo chmod a+x /tmp/zabbix-ansible/scripts/agent_install.sh; sudo /tmp/zabbix-ansible/scripts/agent_install.sh {{ inventory_hostname }}
+
