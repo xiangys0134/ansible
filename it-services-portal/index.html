@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT服务门户 - 企业级IT解决方案</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-server"></i>
+                <span>IT服务门户</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link active">服务目录</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">我的请求</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">知识库</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">帮助中心</a>
+                </li>
+            </ul>
+            <div class="nav-user">
+                <i class="fas fa-user-circle"></i>
+                <span>管理员</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main class="main-container">
+        <!-- 页面标题和搜索 -->
+        <section class="page-header">
+            <div class="container">
+                <h1>IT服务目录</h1>
+                <p class="subtitle">选择您需要的IT服务，我们为您提供专业的技术支持</p>
+                
+                <div class="search-filter-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="搜索服务名称或描述...">
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-category="all">全部</button>
+                        <button class="filter-btn" data-category="infrastructure">基础设施</button>
+                        <button class="filter-btn" data-category="security">安全服务</button>
+                        <button class="filter-btn" data-category="support">技术支持</button>
+                        <button class="filter-btn" data-category="development">开发服务</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务列表 -->
+        <section class="services-section">
+            <div class="container">
+                <div class="services-grid" id="servicesGrid">
+                    <!-- 基础设施服务 -->
+                    <div class="service-card" data-category="infrastructure">
+                        <div class="service-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>服务器申请</h3>
+                            <p>申请物理服务器或虚拟机资源，支持Windows、Linux等多种操作系统</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 2-4工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="infrastructure">
+                        <div class="service-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>网络配置</h3>
+                            <p>网络端口开通、VLAN配置、防火墙规则设置等网络基础服务</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 1-2工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="infrastructure">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>数据库服务</h3>
+                            <p>MySQL、PostgreSQL、Oracle等数据库的申请、配置和维护服务</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 1-3工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <!-- 安全服务 -->
+                    <div class="service-card" data-category="security">
+                        <div class="service-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>安全扫描</h3>
+                            <p>系统漏洞扫描、安全评估报告、安全加固建议</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 3-5工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="security">
+                        <div class="service-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>权限管理</h3>
+                            <p>用户账号管理、权限分配、访问控制策略配置</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 1工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="security">
+                        <div class="service-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>SSL证书</h3>
+                            <p>SSL证书申请、安装、续期等HTTPS安全传输服务</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 1-2工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <!-- 技术支持 -->
+                    <div class="service-card" data-category="support">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>技术咨询</h3>
+                            <p>技术问题咨询、方案设计建议、最佳实践指导</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 实时响应</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="support">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>故障排除</h3>
+                            <p>系统故障诊断、性能优化、问题快速解决</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 4小时内</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="support">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>性能监控</h3>
+                            <p>系统性能监控、告警设置、运行状态报告</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 24/7监控</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <!-- 开发服务 -->
+                    <div class="service-card" data-category="development">
+                        <div class="service-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>代码仓库</h3>
+                            <p>Git代码仓库创建、权限管理、CI/CD流水线配置</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 1工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="development">
+                        <div class="service-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>云平台服务</h3>
+                            <p>容器编排、微服务部署、云原生应用开发支持</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 2-3工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+
+                    <div class="service-card" data-category="development">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>环境配置</h3>
+                            <p>开发、测试、生产环境搭建和配置管理</p>
+                            <div class="service-meta">
+                                <span class="service-time"><i class="fas fa-clock"></i> 1-2工作日</span>
+                                <span class="service-cost"><i class="fas fa-tag"></i> 免费</span>
+                            </div>
+                            <button class="btn-primary">立即申请</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 空状态提示 -->
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>未找到相关服务</h3>
+                    <p>请尝试使用其他关键词搜索或选择不同的服务分类</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>联系我们</h4>
+                    <p><i class="fas fa-phone"></i> 400-8888-8888</p>
+                    <p><i class="fas fa-envelope"></i> support@company.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>工作时间</h4>
+                    <p>周一至周五: 9:00 - 18:00</p>
+                    <p>紧急支持: 24/7</p>
+                </div>
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <p><a href="#">服务协议</a></p>
+                    <p><a href="#">隐私政策</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 IT服务门户. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
